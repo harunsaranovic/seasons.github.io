@@ -1,23 +1,36 @@
 
 <div class="menu">
+    <h1>Season</h1>
     <div class="season active" onclick="changeSeason(0)" style="background: #498eb6;"></div>
     <div class="season" onclick="changeSeason(1)" style="background: #8bb437;"></div>
     <div class="season" onclick="changeSeason(2)" style="background: #f2dd0e;"></div>
     <div class="season" onclick="changeSeason(3)" style="background: #df2f14;"></div>
-
+    <h1>Number of players</h1>
     <div onclick="changeNumberOfDies(4)" class="numberOfDies">4</div>
     <div onclick="changeNumberOfDies(5)" class="numberOfDies">5</div>
+    <br>
+    <br>
+    <br>
+    <button onclick="document.getElementsByClassName('menu')[0].style.display = 'none'">
+        Save
+    </button>
 </div>
 <div class="flex">
-    <div id="dice_0" onclick="clicked(0)" class="die" style="background-image: url(https://x.boardgamearena.net/data/themereleases/current/games/seasons/231014-2222/img/dices.png); background-position: -100% -400%;"></div>
-    <div id="dice_1" onclick="clicked(1)" class="die" style="background-image: url(https://x.boardgamearena.net/data/themereleases/current/games/seasons/231014-2222/img/dices.png); background-position: -100% -400%;"></div>
-    <div id="dice_2" onclick="clicked(2)" class="die" style="background-image: url(https://x.boardgamearena.net/data/themereleases/current/games/seasons/231014-2222/img/dices.png); background-position: -100% -400%;"></div>
-    <div id="dice_3" onclick="clicked(3)" class="die" style="background-image: url(https://x.boardgamearena.net/data/themereleases/current/games/seasons/231014-2222/img/dices.png); background-position: -100% -400%;"></div>
-    <div id="dice_4" onclick="clicked(4)" class="die" style="background-image: url(https://x.boardgamearena.net/data/themereleases/current/games/seasons/231014-2222/img/dices.png); background-position: -100% -400%;"></div>
+    <div id="dice_0" onclick="clicked(0)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
+    <div id="dice_1" onclick="clicked(1)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
+    <div id="dice_2" onclick="clicked(2)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
+    <div id="dice_3" onclick="clicked(3)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
+    <div id="dice_4" onclick="clicked(4)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
 </div>
 <div class="button">
     <button onclick="rool()">
         Rool
+    </button>
+    <br>
+    <br>
+    <br>
+    <button style="background: orange;" onclick="changeNextPlayer()">
+        Next player
     </button>
 </div>
 
@@ -25,21 +38,25 @@
     
 </div>
 
-<div class="player playerbox_1">
+<div id="pl1" class="player playerbox_1 playeractive">
     <input class="playerName" value="Player"></input>
     <div id="player_1"></div>
 </div>
-<div class="player playerbox_2" style="left: auto; right: 0;">
+<div id="pl2" class="player playerbox_2" style="left: auto; right: 0;">
     <input class="playerName" value="Player"></input>
     <div id="player_2"></div>
 </div>
-<div class="player playerbox_3" style="top: auto; bottom: 0;">
+<div id="pl3" class="player playerbox_3" style="top: auto; bottom: 0;">
     <input class="playerName" value="Player"></input>
     <div id="player_3"></div>
 </div>
-<div class="player playerbox_4" style="top: auto; bottom: 0; left: auto; right: 0;">
+<div id="pl4" class="player playerbox_4" style="top: auto; bottom: 0; left: auto; right: 0;">
     <input class="playerName"  value="Player"></input>
     <div id="player_4"></div>
+</div>
+
+<div  style="position: absolute; top: 0; left: 48vw; color: rgb(255, 255, 255); font-size: 3vw;" onclick="document.getElementsByClassName('menu')[0].style.display = 'initial'">
+    Menu
 </div>
 
 
@@ -59,7 +76,7 @@
         width: 50px;
         height: 50px;
         border: solid 5px #00000000;
-        background-color: aliceblue;
+        background-color: rgb(35, 44, 53);
     }
     .season{
         display: inline-block;
@@ -74,16 +91,24 @@
 
     .menu {
         display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #16213f;
+        z-index: 2000;
+        padding: 10%;
     }
 .flex {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 80vh;
 }
 
 .die {
-    width: 54px; height: 54px; 
+    width: 216px; height: 216px; 
     border-radius: 38%;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .5);
     display: inline-block;
@@ -120,9 +145,10 @@ button{
     top: 0;
     left: 0;
     width: 20vw;
-    height: 10vw;
+    height: 20vw;
     padding: 1vw;
     border: solid 1vw #7cb8c7;
+    border: solid 1vw #302014;
 }
 
 .playerbox_1{
@@ -152,17 +178,38 @@ button{
 .playerName{
     width: 100%;
     height: 2vw;
-    font-size: 1.5vw;
-    text-align: center;
+    font-size: 2.5vw;
     margin-bottom: 1vw;
     border: none;
-    background-color: #7cb8c7;
+    background-color: #7cb8c700;
     color: #fff;
+}
+
+.playeractive{
+    border-color: #7cb8c7;
 }
 
 </style>
 
 <script>
+    let playerToMove = 1
+    let nextPlayer = 1
+    let clicks = 0
+    function changeNextPlayer(){
+        let players = document.getElementsByClassName('player')
+        for (let i = 0; i < players.length; i++) {
+            let player = players[i]
+            player.classList.remove('playeractive')
+        }
+        playerToMove++
+        if(playerToMove > players.length){
+            playerToMove = 1
+        }
+        let player = document.getElementById(`pl${playerToMove}`)
+        player.classList.add('playeractive')
+        nextPlayer = playerToMove
+    }
+
     let season = 0
     let numberOfDies = 4
     function rool(){
@@ -180,7 +227,8 @@ button{
             if(numberOfDies >= i)
                 dice.style.display = 'inline-block'
         }
-        nextPlayer = 1
+        //nextPlayer = 1
+        clicks = 0
     }
 
     function changeSeason(index){
@@ -205,9 +253,13 @@ button{
         }
     }
 
-    let nextPlayer = 1
     function clicked(index){
-        if(nextPlayer <= numberOfDies){
+        if(clicks >= numberOfDies){
+            return
+        }
+        if(nextPlayer > numberOfDies){
+            nextPlayer = 1
+        }
             let dice = document.getElementById(`dice_${index}`)
             let player = document.getElementById(`player_${nextPlayer}`)
             dice.classList.add('clicked')
@@ -216,6 +268,6 @@ button{
             player.appendChild(dice.cloneNode(true))
             dice.style.display = 'none'
             nextPlayer++
-        }
+            clicks++
     }
 </script>
