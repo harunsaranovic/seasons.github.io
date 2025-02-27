@@ -16,11 +16,11 @@
     </button>
 </div>
 <div class="flex">
-    <div id="dice_0" onclick="clicked(0)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
-    <div id="dice_1" onclick="clicked(1)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
-    <div id="dice_2" onclick="clicked(2)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
-    <div id="dice_3" onclick="clicked(3)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
-    <div id="dice_4" onclick="clicked(4)" class="die" style="background-image: url(./kocke.png); background-position: -100% -400%;"></div>
+    <div id="dice_0" onclick="clicked(0)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
+    <div id="dice_1" onclick="clicked(1)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
+    <div id="dice_2" onclick="clicked(2)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
+    <div id="dice_3" onclick="clicked(3)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
+    <div id="dice_4" onclick="clicked(4)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
 </div>
 <div class="button">
     <button onclick="rool()">
@@ -108,7 +108,7 @@
 }
 
 .die {
-    width: 216px; height: 216px; 
+    width: 108px; height: 108px; 
     border-radius: 38%;
     box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .5);
     display: inline-block;
@@ -145,7 +145,7 @@ button{
     top: 0;
     left: 0;
     width: 20vw;
-    height: 20vw;
+    height: 200px;
     padding: 1vw;
     border: solid 1vw #7cb8c7;
     border: solid 1vw #302014;
@@ -262,7 +262,7 @@ button{
         }
             let dice = document.getElementById(`dice_${index}`)
             let player = document.getElementById(`player_${nextPlayer}`)
-            dice.classList.add('clicked')
+            //dice.classList.add('clicked')
             //let clickeDices = document.getElementById(`clickeDices`)
             //clickeDices.appendChild(dice.cloneNode(true))
             player.appendChild(dice.cloneNode(true))
