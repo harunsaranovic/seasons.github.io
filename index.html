@@ -1,4 +1,3 @@
-
 <div class="menu">
     <h3>Season</h3>
     <div class="season active" onclick="changeSeason(0)" style="background: #498eb6;"></div>
@@ -16,11 +15,16 @@
     </button>
 </div>
 <div class="flex">
-    <div id="dice_0" onclick="clicked(0)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
-    <div id="dice_1" onclick="clicked(1)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
-    <div id="dice_2" onclick="clicked(2)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
-    <div id="dice_3" onclick="clicked(3)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
-    <div id="dice_4" onclick="clicked(4)" class="die" style="background-image: url(./kocke.jpg); background-position: -100% -400%;"></div>
+    <div id="dice_0" onclick="clicked(0)" class="die"
+        style="background-image: url(./kocke.svg); background-position: -100% -400%;"></div>
+    <div id="dice_1" onclick="clicked(1)" class="die"
+        style="background-image: url(./kocke.svg); background-position: -100% -400%;"></div>
+    <div id="dice_2" onclick="clicked(2)" class="die"
+        style="background-image: url(./kocke.svg); background-position: -100% -400%;"></div>
+    <div id="dice_3" onclick="clicked(3)" class="die"
+        style="background-image: url(./kocke.svg); background-position: -100% -400%;"></div>
+    <div id="dice_4" onclick="clicked(4)" class="die"
+        style="background-image: url(./kocke.svg); background-position: -100% -400%;"></div>
 </div>
 <div class="button">
     <button onclick="rool()">
@@ -32,11 +36,8 @@
         Next player
     </button>
 </div>
-
 <div id="clickeDices">
-    
 </div>
-
 <div id="pl1" class="player playerbox_1 playeractive">
     <input class="playerName" value="Player"></input>
     <div onclick="reroll(1)" id="player_1"></div>
@@ -50,17 +51,15 @@
     <div onclick="reroll(3)" id="player_3"></div>
 </div>
 <div id="pl4" class="player playerbox_4" style="top: auto; bottom: 0;">
-    <input class="playerName"  value="Player"></input>
+    <input class="playerName" value="Player"></input>
     <div onclick="reroll(4)" id="player_4"></div>
 </div>
-
-<div  class="menubutton" onclick="document.getElementsByClassName('menu')[0].style.display = 'initial'">
+<div class="menubutton" onclick="document.getElementsByClassName('menu')[0].style.display = 'initial'">
     MENU
 </div>
-
-
 <style>
-    html, body{
+    html,
+    body {
         margin: 0;
         padding: 0;
         background-image: url(./bg.jpg);
@@ -70,21 +69,23 @@
         color: #fff;
         font-family: Arial, Helvetica, sans-serif;
     }
-    .numberOfDies{
+
+    .numberOfDies {
         display: inline-block;
         width: 50px;
         height: 50px;
         border: solid 5px #00000000;
         background-color: rgb(35, 44, 53);
     }
-    .season{
+
+    .season {
         display: inline-block;
         width: 100px;
         height: 100px;
         border: solid 5px #00000000
     }
 
-    .active{
+    .active {
         border: solid 5px #000000
     }
 
@@ -100,122 +101,128 @@
         padding: 10vh 10% 0 10%;
     }
 
-    .reroll{
+    .reroll {
         background-color: #33fff5;
         display: inline-block;
     }
-.flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    transform: scale(0.8);
-}
 
-.die {
-    width: 108px; height: 108px; 
-    border-radius: 38%;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .5);
-    display: inline-block;
-    margin: 3px;
-    transform: scale(1);
-}
+    .flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+        transform: scale(0.8);
+    }
 
-.button{
-    width: 100%;
-    text-align: center;
-    position: absolute;
-    top: 65vh;
-}
+    .die {
+        width: 108px;
+        height: 108px;
+        background-size: 2160px;
+        border-radius: 38%;
+        border-radius: 30%;
+        box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, .5);
+        display: inline-block;
+        margin: 4px;
+        transform: scale(1);
+    }
 
-button{
-    -width: 100px;
-    -height: 50px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 32px;
-    padding: 0.5vw 2vw;
-}
+    .button {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+        top: 65vh;
+    }
 
-.clicked{
-    border: solid 5px #000000
-}
+    button {
+        -width: 100px;
+        -height: 50px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 32px;
+        padding: 0.5vw 2vw;
+    }
 
-.player{
-    position: absolute;
-    background-color: #7cb8c733;
-    top: 0;
-    left: 0;
-    width: 20vw;
-    height: 140px;
-    padding: 10px;
-    border: solid 10px #7cb8c7;
-    border: solid 10px #1c183d93;
-}
+    .clicked {
+        border: solid 5px #000000
+    }
 
-.playerbox_1{
-    border-left: none;
-    border-top: none;
-    border-bottom-right-radius: 1vw;
-}
+    .player {
+        position: absolute;
+        background-color: #7cb8c733;
+        top: 0;
+        left: 0;
+        width: 20vw;
+        height: 140px;
+        padding: 10px;
+        border: solid 10px #7cb8c7;
+        border: solid 10px #1c183d93;
+    }
 
-.playerbox_2{
-    border-right: none;
-    border-top: none;
-    border-bottom-left-radius: 1vw;
-}
+    .playerbox_1 {
+        border-left: none;
+        border-top: none;
+        border-bottom-right-radius: 1vw;
+    }
 
-.playerbox_3{
-    border-right: none;
-    border-bottom: none;
-    border-top-left-radius: 1vw;
-}
+    .playerbox_2 {
+        border-right: none;
+        border-top: none;
+        border-bottom-left-radius: 1vw;
+    }
 
-.playerbox_4{
-    border-left: none;
-    border-bottom: none;
-    border-top-right-radius: 1vw;
-}
+    .playerbox_3 {
+        border-right: none;
+        border-bottom: none;
+        border-top-left-radius: 1vw;
+    }
 
-.playerName{
-    width: 100%;
-    font-size: 20px;
-    border: none;
-    background-color: #7cb8c700;
-    color: #fff;
-}
+    .playerbox_4 {
+        border-left: none;
+        border-bottom: none;
+        border-top-right-radius: 1vw;
+    }
 
-.playeractive{
-    border-color: #33fff5;
-    background-color: #33fff530;
-}
+    .playerName {
+        width: 100%;
+        font-size: 20px;
+        border: none;
+        background-color: #7cb8c700;
+        color: #fff;
+    }
 
-.menubutton{
-    position: absolute; top: 20px; left: 42vw; color: rgb(255, 255, 255); font-size: 38px;
-    background-color: #0e061a;
-    padding: 10px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-}
+    .playeractive {
+        border-color: #33fff5;
+        background-color: #33fff530;
+    }
 
+    .menubutton {
+        position: absolute;
+        top: 20px;
+        left: 42vw;
+        color: rgb(255, 255, 255);
+        font-size: 38px;
+        background-color: #0e061a;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+    }
 </style>
-
 <script>
     let playerToMove = 1
     let nextPlayer = 1
     let clicks = 0
     let rerolls = [true, true, true, true]
-    function changeNextPlayer(){
+    function changeNextPlayer() {
         let players = document.getElementsByClassName('player')
         for (let i = 0; i < players.length; i++) {
             let player = players[i]
             player.classList.remove('playeractive')
         }
         playerToMove++
-        if(playerToMove > players.length){
+        if (playerToMove > players.length) {
             playerToMove = 1
         }
         let player = document.getElementById(`pl${playerToMove}`)
@@ -225,7 +232,7 @@ button{
 
     let season = 0
     let numberOfDies = 4
-    function rool(){
+    function rool() {
         let players = document.getElementsByClassName('player')
         for (let i = 0; i < players.length; i++) {
             let player = players[i]
@@ -237,7 +244,7 @@ button{
             let random = Math.floor(Math.random() * 6)
             dice.style.backgroundPosition = `-${(season * 5 + i) * 100}% -${random * 100}%`
             dice.classList.remove('clicked')
-            if(numberOfDies >= i)
+            if (numberOfDies >= i)
                 dice.style.display = 'inline-block'
         }
         //nextPlayer = 1
@@ -245,7 +252,7 @@ button{
         clicks = 0
     }
 
-    function changeSeason(index){
+    function changeSeason(index) {
         season = index
         let seasons = document.getElementsByClassName('season')
         for (let i = 0; i < seasons.length; i++) {
@@ -255,38 +262,38 @@ button{
         seasons[index].classList.add('active')
     }
 
-    function changeNumberOfDies(number){
+    function changeNumberOfDies(number) {
         let dices = document.getElementsByClassName('die')
         for (let i = 0; i < dices.length; i++) {
             let dice = dices[i]
-            if(i < number){
+            if (i < number) {
                 dice.style.display = 'inline-block'
-            }else{
+            } else {
                 dice.style.display = 'none'
             }
         }
     }
 
-    function clicked(index){
-        if(clicks >= numberOfDies){
+    function clicked(index) {
+        if (clicks >= numberOfDies) {
             return
         }
-        if(nextPlayer > numberOfDies){
+        if (nextPlayer > numberOfDies) {
             nextPlayer = 1
         }
-            let dice = document.getElementById(`dice_${index}`)
-            let player = document.getElementById(`player_${nextPlayer}`)
-            //dice.classList.add('clicked')
-            //let clickeDices = document.getElementById(`clickeDices`)
-            //clickeDices.appendChild(dice.cloneNode(true))
-            player.appendChild(dice.cloneNode(true))
-            dice.style.display = 'none'
-            nextPlayer++
-            clicks++
+        let dice = document.getElementById(`dice_${index}`)
+        let player = document.getElementById(`player_${nextPlayer}`)
+        //dice.classList.add('clicked')
+        //let clickeDices = document.getElementById(`clickeDices`)
+        //clickeDices.appendChild(dice.cloneNode(true))
+        player.appendChild(dice.cloneNode(true))
+        dice.style.display = 'none'
+        nextPlayer++
+        clicks++
     }
 
-    function reroll(index){
-        if(rerolls && rerolls[index - 1]){
+    function reroll(index) {
+        if (rerolls && rerolls[index - 1]) {
             let player = document.getElementById(`player_${index}`)
             console.log(player)
             let random = Math.floor(Math.random() * 6)
