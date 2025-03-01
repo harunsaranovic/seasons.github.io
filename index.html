@@ -1,17 +1,17 @@
 
 <div class="menu">
-    <h1>Season</h1>
+    <h3>Season</h3>
     <div class="season active" onclick="changeSeason(0)" style="background: #498eb6;"></div>
     <div class="season" onclick="changeSeason(1)" style="background: #8bb437;"></div>
     <div class="season" onclick="changeSeason(2)" style="background: #f2dd0e;"></div>
     <div class="season" onclick="changeSeason(3)" style="background: #df2f14;"></div>
-    <h1>Number of players</h1>
+    <h3>Number of players</h3>
     <div onclick="changeNumberOfDies(4)" class="numberOfDies">4</div>
     <div onclick="changeNumberOfDies(5)" class="numberOfDies">5</div>
     <br>
     <br>
     <br>
-    <button onclick="document.getElementsByClassName('menu')[0].style.display = 'none'">
+    <button style="font-size: 42px;" onclick="document.getElementsByClassName('menu')[0].style.display = 'none'">
         Save
     </button>
 </div>
@@ -24,9 +24,8 @@
 </div>
 <div class="button">
     <button onclick="rool()">
-        Rool
+        Roll
     </button>
-    <br>
     <br>
     <br>
     <button style="background: orange;" onclick="changeNextPlayer()">
@@ -40,23 +39,23 @@
 
 <div id="pl1" class="player playerbox_1 playeractive">
     <input class="playerName" value="Player"></input>
-    <div id="player_1"></div>
+    <div onclick="reroll(1)" id="player_1"></div>
 </div>
 <div id="pl2" class="player playerbox_2" style="left: auto; right: 0;">
     <input class="playerName" value="Player"></input>
-    <div id="player_2"></div>
+    <div onclick="reroll(2)" id="player_2"></div>
 </div>
-<div id="pl3" class="player playerbox_3" style="top: auto; bottom: 0;">
+<div id="pl3" class="player playerbox_3" style="top: auto; bottom: 0; left: auto; right: 0;">
     <input class="playerName" value="Player"></input>
-    <div id="player_3"></div>
+    <div onclick="reroll(3)" id="player_3"></div>
 </div>
-<div id="pl4" class="player playerbox_4" style="top: auto; bottom: 0; left: auto; right: 0;">
+<div id="pl4" class="player playerbox_4" style="top: auto; bottom: 0;">
     <input class="playerName"  value="Player"></input>
-    <div id="player_4"></div>
+    <div onclick="reroll(4)" id="player_4"></div>
 </div>
 
-<div  style="position: absolute; top: 0; left: 48vw; color: rgb(255, 255, 255); font-size: 3vw;" onclick="document.getElementsByClassName('menu')[0].style.display = 'initial'">
-    Menu
+<div  class="menubutton" onclick="document.getElementsByClassName('menu')[0].style.display = 'initial'">
+    MENU
 </div>
 
 
@@ -80,8 +79,8 @@
     }
     .season{
         display: inline-block;
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
         border: solid 5px #00000000
     }
 
@@ -95,10 +94,15 @@
         left: 0;
         top: 0;
         width: 100%;
-        height: 100vh;
+        height: 120vh;
         background-color: #16213f;
         z-index: 2000;
-        padding: 10%;
+        padding: 10vh 10% 0 10%;
+    }
+
+    .reroll{
+        background-color: #33fff5;
+        display: inline-block;
     }
 .flex {
     display: flex;
@@ -132,7 +136,7 @@ button{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 2.4vw;
+    font-size: 32px;
     padding: 0.5vw 2vw;
 }
 
@@ -165,15 +169,15 @@ button{
 }
 
 .playerbox_3{
-    border-left: none;
-    border-bottom: none;
-    border-top-right-radius: 1vw;
-}
-
-.playerbox_4{
     border-right: none;
     border-bottom: none;
     border-top-left-radius: 1vw;
+}
+
+.playerbox_4{
+    border-left: none;
+    border-bottom: none;
+    border-top-right-radius: 1vw;
 }
 
 .playerName{
@@ -189,12 +193,21 @@ button{
     background-color: #33fff530;
 }
 
+.menubutton{
+    position: absolute; top: 20px; left: 42vw; color: rgb(255, 255, 255); font-size: 38px;
+    background-color: #0e061a;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 </style>
 
 <script>
     let playerToMove = 1
     let nextPlayer = 1
     let clicks = 0
+    let rerolls = [true, true, true, true]
     function changeNextPlayer(){
         let players = document.getElementsByClassName('player')
         for (let i = 0; i < players.length; i++) {
@@ -228,6 +241,7 @@ button{
                 dice.style.display = 'inline-block'
         }
         //nextPlayer = 1
+        rerolls = [true, true, true, true]
         clicks = 0
     }
 
@@ -269,5 +283,15 @@ button{
             dice.style.display = 'none'
             nextPlayer++
             clicks++
+    }
+
+    function reroll(index){
+        if(rerolls && rerolls[index - 1]){
+            let player = document.getElementById(`player_${index}`)
+            console.log(player)
+            let random = Math.floor(Math.random() * 6)
+            player.children[0].style.backgroundPosition = `${player.children[0].style.backgroundPosition.split(' ')[0]} -${random * 100}%`
+            rerolls[index - 1] = false
+        }
     }
 </script>
