@@ -4,9 +4,9 @@
     <div class="season" onclick="changeSeason(1)" style="background: #8bb437;"></div>
     <div class="season" onclick="changeSeason(2)" style="background: #f2dd0e;"></div>
     <div class="season" onclick="changeSeason(3)" style="background: #df2f14;"></div>
-    <h3>Number of players</h3>
-    <div onclick="changeNumberOfDies(4)" class="numberOfDies">4</div>
-    <div onclick="changeNumberOfDies(5)" class="numberOfDies">5</div>
+    <h3>Number of dice</h3>
+    <div onclick="changeNumberOfDies(4)" class="numberOfDies" id="nod4">4</div>
+    <div onclick="changeNumberOfDies(5)" class="numberOfDies" id="nod5">5</div>
     <br>
     <br>
     <br>
@@ -73,9 +73,12 @@
     .numberOfDies {
         display: inline-block;
         width: 50px;
-        height: 50px;
+        height: 37px;
         border: solid 5px #00000000;
         background-color: rgb(35, 44, 53);
+        text-align: center;
+        font-weight: 900;
+        padding-top: 13px;
     }
 
     .season {
@@ -244,7 +247,7 @@
             let random = Math.floor(Math.random() * 6)
             dice.style.backgroundPosition = `-${(season * 5 + i) * 100}% -${random * 100}%`
             dice.classList.remove('clicked')
-            if (numberOfDies >= i)
+            if (numberOfDies > i)
                 dice.style.display = 'inline-block'
         }
         //nextPlayer = 1
@@ -264,6 +267,12 @@
 
     function changeNumberOfDies(number) {
         let dices = document.getElementsByClassName('die')
+        let numberOfDiesElements = document.getElementsByClassName('numberOfDies')
+        for (let i = 0; i < numberOfDiesElements.length; i++) {
+            let numberOfDiesElement = numberOfDiesElements[i]
+            numberOfDiesElement.style.border = 'solid 5px #00000000'
+        }
+        document.getElementById(`nod${number}`).style.border = 'solid 5px #000000'
         for (let i = 0; i < dices.length; i++) {
             let dice = dices[i]
             if (i < number) {
